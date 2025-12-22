@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ kursus.nama }} - KodingKu</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+    <div class="card shadow-lg p-5">
+
+        <!-- Judul -->
+        <h2 class="mb-2">{{ kursus.nama }}</h2>
+        <p class="text-muted">{{ kursus.deskripsi }}</p>
+
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <p><strong>Durasi:</strong> {{ kursus.durasi }}</p>
+                <p><strong>Level:</strong> {{ kursus.level }}</p>
+            </div>
+        </div>
+
+        <hr>
+
+        <!-- Materi -->
+        <h4 class="mt-4"> Materi yang Dipelajari</h4>
+        <ul class="list-group list-group-flush">
+            {% for m in kursus.materi %}
+                <li class="list-group-item">✔ {{ m }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Manfaat -->
+        <h4 class="mt-4"> Manfaat yang Didapat</h4>
+        <ul class="list-group list-group-flush">
+            {% for m in kursus.manfaat %}
+                <li class="list-group-item">⭐ {{ m }}</li>
+            {% endfor %}
+        </ul>
+
+        <hr>
+
+        <!-- CTA -->
+        <div class="mt-4 d-flex gap-2">
+            <a href="{% url 'daftar' slug %}" class="btn btn-success btn-lg">
+                Ikuti Kursus
+            </a>
+            <a href="{% url 'index' %}" class="btn btn-outline-secondary btn-lg">
+                Kembali
+            </a>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
