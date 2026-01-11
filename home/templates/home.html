@@ -1,0 +1,210 @@
+{% extends 'index.html' %} {% block content %} {% load static %}
+
+<!-- Features Section -->
+<section class="py-24">
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div
+      class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+    >
+      <div
+        class="text-amber-accent bg-amber-accent/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+      >
+        <span class="material-symbols-outlined text-3xl">menu_book</span>
+      </div>
+      <h3 class="text-xl font-bold mb-3">Kurikulum Industri</h3>
+      <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
+        Materi yang selalu update sesuai dengan kebutuhan pasar kerja global
+        saat ini.
+      </p>
+    </div>
+    <div
+      class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+    >
+      <div
+        class="text-emerald-accent bg-emerald-accent/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+      >
+        <span class="material-symbols-outlined text-3xl">groups</span>
+      </div>
+      <h3 class="text-xl font-bold mb-3">Mentoring Privat</h3>
+      <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
+        Bimbingan 1-on-1 dari Senior Developer untuk membantu kendala belajarmu.
+      </p>
+    </div>
+    <div
+      class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all"
+    >
+      <div
+        class="text-rose-accent bg-rose-accent/10 w-14 h-14 rounded-2xl flex items-center justify-center mb-6"
+      >
+        <span class="material-symbols-outlined text-3xl">terminal</span>
+      </div>
+      <h3 class="text-xl font-bold mb-3">Proyek Real-World</h3>
+      <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
+        Build production-ready apps yang bisa kamu jadikan portofolio andalan.
+      </p>
+    </div>
+  </div>
+</section>
+
+<div class="flex flex-col md:flex-row justify-between items-center gap-6 mb-12">
+  <div>
+    <h2 class="text-4xl font-black tracking-tight mb-2">
+      Explore Popular Tracks
+    </h2>
+    <p class="text-slate-500">
+      Pilih spesialisasi yang paling sesuai dengan passion-mu.
+    </p>
+  </div>
+</div>
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-24">
+  <!-- Web Development -->
+  <div
+    class="relative group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-[0_20px_50px_rgba(245,158,11,0.15)] transition-all flex flex-col h-full"
+  >
+    <div class="absolute top-4 left-4 z-20">
+      <span
+        class="bg-amber-accent text-indigo-deep text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg"
+        >Best Seller</span
+      >
+    </div>
+    <div class="relative h-56 overflow-hidden">
+      <img
+        alt="Web Dev"
+        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCx-kQ4bWQzBWcNg-w7cOhJ47jmUgCQStQENi4nDkSTL2adXYGcEnh4EQpW-t_Ih30YqtkPAA-4FBRYE7k8MgpwMC6CLxJQnbCyDIx8im-mdrInvaqI8IrzhZGbyU0JkI9cWD2SheNccmSAkqQ7U1icH0yfdw_Z2hOntuZ2iuHbow41RDY1BdG-NAbwANbWFZ0QMwt8b_qypWn_HWzKWlT1zFGq_dId04JWG1vKSIgAQchAH4K5qBl6HxULSKCC0O9Dwd4HM5CyFDg"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+      ></div>
+    </div>
+    <div class="p-8 flex flex-col flex-1">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-amber-accent font-black text-sm uppercase"
+          >Fullstack Web</span
+        >
+        <div class="flex items-center gap-1 text-sm font-bold">
+          <span class="material-symbols-outlined text-amber-accent text-lg"
+            >star</span
+          >
+          4.9
+        </div>
+      </div>
+      <h3 class="text-2xl font-bold mb-3">Web Development</h3>
+      <p
+        class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1"
+      >
+        Kuasai React 18, Next.js 14, dan Tailwind CSS untuk membangun aplikasi
+        web skala enterprise.
+      </p>
+      <a
+        href="{% url 'course_detail' 'web-development' %}"
+        class="w-full py-4 px-6 rounded-2xl bg-amber-accent/10 text-amber-accent font-black hover:bg-amber-accent hover:text-white transition-all flex items-center justify-center gap-2"
+      >
+        Enroll Track
+        <span class="material-symbols-outlined text-base">rocket_launch</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Python Engineering -->
+  <div
+    class="relative group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-[0_20px_50px_rgba(16,185,129,0.15)] transition-all flex flex-col h-full"
+  >
+    <div class="absolute top-4 left-4 z-20">
+      <span
+        class="bg-emerald-accent text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg"
+        >Popular</span
+      >
+    </div>
+    <div class="relative h-56 overflow-hidden">
+      <img
+        alt="Python"
+        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ7TCj5FJ6zjE_CJRYh4Og_Lo6gaVQSTlRDAJhtqZfefmbS0npTPihqhQmms5rc8tIydOZAjoarUMYO8XWjDnwUkQPeOkX_3CzKkaL-3B3Q-AloPXxw8jV2jq1pIbUo8SdBt_gI6MtpvDCgaIA0SYr3BPeC8FN-9FQAIvIMW3qlWYwuGg6vHzEPnuVsbN1uL-d1DyXJPJjy9CEnuNo0N5H_x9pj6LrGOUBVa0UXOwal7a1QL8Stu-gLQi2tgJe_E9hVzmyVpBwyTU"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+      ></div>
+    </div>
+    <div class="p-8 flex flex-col flex-1">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-emerald-accent font-black text-sm uppercase"
+          >Python &amp; Data</span
+        >
+        <div class="flex items-center gap-1 text-sm font-bold">
+          <span class="material-symbols-outlined text-emerald-accent text-lg"
+            >star</span
+          >
+          4.8
+        </div>
+      </div>
+      <h3 class="text-2xl font-bold mb-3">Python Engineering</h3>
+      <p
+        class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1"
+      >
+        Dari automation, web backend dengan Django, hingga fundamental data
+        science dan AI integration.
+      </p>
+      <a
+        href="{% url 'course_detail' 'python-engineering' %}"
+        class="w-full py-4 px-6 rounded-2xl bg-emerald-accent/10 text-emerald-accent font-black hover:bg-emerald-accent hover:text-white transition-all flex items-center justify-center gap-2"
+      >
+        Enroll Track
+        <span class="material-symbols-outlined text-base">rocket_launch</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- Mobile Development -->
+  <div
+    class="relative group bg-white dark:bg-slate-900 rounded-[2rem] overflow-hidden border border-slate-100 dark:border-slate-800 hover:shadow-[0_20px_50px_rgba(244,63,94,0.15)] transition-all flex flex-col h-full"
+  >
+    <div class="absolute top-4 left-4 z-20">
+      <span
+        class="bg-rose-accent text-white text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-full shadow-lg"
+        >Trending</span
+      >
+    </div>
+    <div class="relative h-56 overflow-hidden">
+      <img
+        alt="Mobile Dev"
+        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBve4-gw2oHHjUOz2wVKvvMBZkbz700vvXCp44QsK_zja_yaAizUNp2EpKEcpeeFBxeRu3j1VR7sRzWbqYdarC9tmrXQ8hhrpNVy7QbVs8WxRk373FGNS2WRvDtq1i2Yj0PkuwVXzzHkzpvtRf4WCHqMIWLDpo6FNm8x7BfmorUvopGI1xYynKiH3fyZ6gdzoHqxEk5nh4pMFOlHjzD3AThY6yGs__k070u2vyEu8S8NKG842apr8PK0YbG3B1AIJU_WCu6CmUplgY"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"
+      ></div>
+    </div>
+
+    <div class="p-8 flex flex-col flex-1">
+      <div class="flex justify-between items-center mb-4">
+        <span class="text-rose-accent font-black text-sm uppercase"
+          >Mobile Apps</span
+        >
+        <div class="flex items-center gap-1 text-sm font-bold">
+          <span class="material-symbols-outlined text-rose-accent text-lg"
+            >star</span
+          >
+          4.7
+        </div>
+      </div>
+
+      <h3 class="text-2xl font-bold mb-3">Mobile Development</h3>
+      <p
+        class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed mb-6 flex-1"
+      >
+        Build beautiful, high-performance applications for iOS and Android with
+        single codebase using Flutter.
+      </p>
+      <a
+        href="{% url 'course_detail' 'mobile-development' %}"
+        class="w-full py-4 px-6 rounded-2xl bg-rose-accent/10 text-rose-accent font-black hover:bg-rose-accent hover:text-white transition-all flex items-center justify-center gap-2"
+      >
+        Enroll Track
+        <span class="material-symbols-outlined text-base">rocket_launch</span>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

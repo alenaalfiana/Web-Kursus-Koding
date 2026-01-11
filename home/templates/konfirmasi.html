@@ -1,0 +1,116 @@
+{% extends 'index.html' %}
+{% block content %}
+
+<section class="py-24 max-w-6xl mx-auto px-4">
+
+    <!-- HEADER -->
+    <div class="mb-12 text-center">
+        <h1 class="text-4xl font-black mb-3">Konfirmasi Pendaftaran</h1>
+        <p class="text-slate-500">
+            Pastikan semua data berikut sudah benar sebelum melanjutkan ke pembayaran
+        </p>
+    </div>
+
+    <!-- GRID -->
+    <div class="grid lg:grid-cols-3 gap-8">
+
+        <!-- DATA PESERTA -->
+        <div class="lg:col-span-2 bg-white rounded-3xl shadow-xl p-8">
+            <h2 class="text-2xl font-bold mb-6">Data Peserta</h2>
+
+            <div class="grid md:grid-cols-2 gap-6 text-slate-700">
+
+                <div>
+                    <p class="text-sm text-slate-400">Nama Lengkap</p>
+                    <p class="font-bold">{{ data.name }}</p>
+                </div>
+
+                <div>
+                    <p class="text-sm text-slate-400">Email</p>
+                    <p class="font-bold">{{ data.email }}</p>
+                </div>
+
+                <div>
+                    <p class="text-sm text-slate-400">No. WhatsApp</p>
+                    <p class="font-bold">{{ data.phone }}</p>
+                </div>
+
+                <div>
+                    <p class="text-sm text-slate-400">Jenis Kelamin</p>
+                    <p class="font-bold">{{ data.gender }}</p>
+                </div>
+
+                <div>
+                    <p class="text-sm text-slate-400">Usia</p>
+                    <p class="font-bold">{{ data.age }} Tahun</p>
+                </div>
+
+                <div>
+                    <p class="text-sm text-slate-400">Domisili</p>
+                    <p class="font-bold">{{ data.city }}</p>
+                </div>
+
+                <div>
+                    <p class="text-sm text-slate-400">Pendidikan Terakhir</p>
+                    <p class="font-bold">{{ data.education }}</p>
+                </div>
+
+                <div>
+                    <p class="text-sm text-slate-400">Pengalaman Coding</p>
+                    <p class="font-bold">{{ data.experience }}</p>
+                </div>
+
+                <div class="md:col-span-2">
+                    <p class="text-sm text-slate-400">Tujuan Mengikuti Kursus</p>
+                    <p class="font-bold">{{ data.goal }}</p>
+                </div>
+
+                <div>
+                    <p class="text-sm text-slate-400">Perangkat Belajar</p>
+                    <p class="font-bold">{{ data.device }}</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- DETAIL KURSUS -->
+        <div class="bg-white rounded-3xl shadow-xl p-8 h-fit">
+            <h2 class="text-2xl font-bold mb-6">Detail Kursus</h2>
+
+            <h3 class="text-xl font-black mb-2 text-indigo-600">
+                {{ course.title }}
+            </h3>
+            <p class="text-slate-500 mb-4">
+                {{ course.description }}
+            </p>
+
+            <div class="text-sm space-y-2 mb-6">
+                <p><strong>Kategori:</strong> {{ course.category }}</p>
+                <p></p><strong>Pelaksanaan:</strong> <br>{{ course.schedule }}</p>
+            </div>
+
+            <!-- HARGA -->
+            <div class="bg-slate-50 rounded-2xl p-4 mb-6">
+                <p class="text-sm text-slate-500">Biaya Kursus</p>
+                <p class="text-3xl font-black text-indigo-600">
+                    Rp 1.500.000
+                </p>
+            </div>
+
+            <!-- ACTION -->
+            <form method="post" action="{% url 'process_payment' slug=course.slug %}">
+                {% csrf_token %}
+                <button
+                    class="w-full py-4 rounded-xl bg-indigo-600 text-white font-black hover:bg-indigo-700 transition">
+                    Bayar Sekarang
+                </button>
+            </form>
+
+        </div>
+
+    </div>
+    </div>
+
+</section>
+
+{% endblock %}

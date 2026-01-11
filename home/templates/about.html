@@ -1,0 +1,55 @@
+{% extends 'index.html' %} {% block content %} {% load static %}
+<section class="py-24 bg-slate-50">
+  <!-- HEADER -->
+  <div class="max-w-6xl mx-auto px-4 text-center mb-16">
+    <h1 class="text-4xl font-black mb-4">Tentang Kami</h1>
+  </div>
+
+  <!-- TEAM GRID -->
+  <div class="max-w-6xl mx-auto px-4 grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+    <!-- CARD 1 -->
+    <div class="bg-white rounded-3xl shadow-xl p-6 text-center">
+      <img src="{% static 'images/alena.jpg' %}" alt="Foto Alena"
+        class="w-32 h-32 mx-auto rounded-full object-cover mb-4" />
+      <h3 class="text-xl font-black">Alena Alfiana</h3>
+      <p class="text-indigo-600 font-semibold mb-3">( 0110225079 )</p>
+      <p class="text-sm text-slate-600">
+        Bertanggung jawab dalam pengembangan sistem dan arsitektur website.
+      </p>
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="bg-white rounded-3xl shadow-xl p-6 text-center">
+      <img src="{% static 'images/hafiz.jpeg' %}" alt="Foto" class="w-32 h-32 mx-auto rounded-full object-cover mb-4" />
+      <h3 class="text-xl font-black">Muhamad Hafiz Hibatullah</h3>
+      <p class="text-indigo-600 font-semibold mb-3">( 0110225157 )</p>
+      <p class="text-sm text-slate-600">
+        Mendesain tampilan yang modern, ramah pengguna, dan responsif.
+      </p>
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="bg-white rounded-3xl shadow-xl p-6 text-center">
+      <img src="{% static 'images/dallen.jpeg' %}" alt="Foto"
+        class="w-32 h-32 mx-auto rounded-full object-cover mb-4" />
+      <h3 class="text-xl font-black">Dallen Friedolin Manuel Daely</h3>
+      <p class="text-indigo-600 font-semibold mb-3">( 0110225020 )</p>
+      <p class="text-sm text-slate-600">
+        Menyusun PowerPoint presentasi dan materi pendukung lainnya.
+      </p>
+    </div>
+
+    <!-- CARD 4 -->
+    <div class="bg-white rounded-3xl shadow-xl p-6 text-center">
+      <img src="{% static 'images/salman.jpeg' %}" alt="Foto"
+        class="w-32 h-32 mx-auto rounded-full object-cover mb-4" />
+      <h3 class="text-xl font-black">Salman Shiddiq Abdul Rauf</h3>
+      <p class="text-indigo-600 font-semibold mb-3">( 010225013 )</p>
+      <p class="text-sm text-slate-600">
+        Membuat Laporan Proyek Akhir dan dokumentasi teknis.
+      </p>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

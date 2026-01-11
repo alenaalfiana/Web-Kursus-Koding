@@ -1,0 +1,170 @@
+{% extends 'index.html' %} {% block content %}
+
+<section class="py-24 max-w-4xl mx-auto px-4">
+  <div class="bg-white rounded-3xl shadow-xl p-10">
+    <!-- HEADER -->
+    <h1 class="text-3xl font-black mb-2">Pendaftaran Kursus</h1>
+    <p class="text-slate-500 mb-10">
+      Kamu akan mendaftar kursus:
+      <span class="font-bold text-indigo-600">{{ course.title }}</span>
+    </p>
+
+    <!-- FORM -->
+    <form method="post" class="space-y-10">
+      {% csrf_token %}
+
+      <!-- DATA PRIBADI -->
+      <div>
+        <h2 class="text-xl font-bold mb-6">Data Pribadi</h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block font-bold mb-1">Nama Lengkap</label>
+            <input
+              type="text"
+              name="name"
+              required
+              class="w-full rounded-xl border-slate-300 focus:ring-indigo-500"
+            />
+          </div>
+
+          <div>
+            <label class="block font-bold mb-1">Email</label>
+            <input
+              type="email"
+              name="email"
+              required
+              class="w-full rounded-xl border-slate-300 focus:ring-indigo-500"
+            />
+          </div>
+
+          <div>
+            <label class="block font-bold mb-1">No. WhatsApp</label>
+            <input
+              type="text"
+              name="phone"
+              required
+              class="w-full rounded-xl border-slate-300 focus:ring-indigo-500"
+            />
+          </div>
+
+          <div>
+            <label class="block font-bold mb-1">Jenis Kelamin</label>
+            <select
+              name="gender"
+              class="w-full rounded-xl border-slate-300 focus:ring-indigo-500"
+            >
+              <option value="">Pilih</option>
+              <option value="Laki-laki">Laki-laki</option>
+              <option value="Perempuan">Perempuan</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-bold mb-1">Usia</label>
+            <input
+              type="number"
+              name="age"
+              min="10"
+              max="70"
+              class="w-full rounded-xl border-slate-300 focus:ring-indigo-500"
+            />
+          </div>
+
+          <div>
+            <label class="block font-bold mb-1">Domisili</label>
+            <input
+              type="text"
+              name="city"
+              class="w-full rounded-xl border-slate-300 focus:ring-indigo-500"
+              placeholder="Contoh: Jakarta"
+            />
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- LATAR BELAKANG -->
+      <div>
+        <h2 class="text-xl font-bold mb-6">Latar Belakang</h2>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label class="block font-bold mb-1">Pendidikan Terakhir</label>
+            <select
+              name="education"
+              class="w-full rounded-xl border-slate-300 focus:ring-indigo-500"
+            >
+              <option value="">Pilih</option>
+              <option>SMA / SMK</option>
+              <option>D3</option>
+              <option>S1</option>
+              <option>S2</option>
+              <option>Lainnya</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block font-bold mb-1">Pengalaman Coding</label>
+            <select
+              name="experience"
+              class="w-full rounded-xl border-slate-300 focus:ring-indigo-500"
+            >
+              <option value="Pemula">Pemula</option>
+              <option value="Menengah">Menengah</option>
+              <option value="Mahir">Mahir</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <label class="block font-bold mb-1">Tujuan Mengikuti Kursus</label>
+          <textarea
+            name="goal"
+            rows="3"
+            class="w-full rounded-xl border-slate-300 focus:ring-indigo-500"
+            placeholder="Contoh: Ingin berkarier sebagai Web Developer"
+          ></textarea>
+        </div>
+      </div>
+
+      <hr />
+
+      <!-- PERANGKAT -->
+      <div>
+        <h2 class="text-xl font-bold mb-6">Perangkat Belajar</h2>
+
+        <div>
+          <label class="block font-bold mb-1">Device yang Digunakan</label>
+          <select
+            name="device"
+            class="w-full rounded-xl border-slate-300 focus:ring-indigo-500"
+          >
+            <option>Laptop</option>
+            <option>PC</option>
+            <option>Tablet</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- AGREEMENT -->
+      <div class="flex items-start gap-3">
+        <input type="checkbox" required class="mt-1" />
+        <p class="text-sm text-slate-600">
+          Saya menyatakan data yang saya isi adalah benar dan setuju dengan
+          <span class="text-indigo-600 font-bold">syarat & ketentuan</span>.
+        </p>
+      </div>
+
+      <!-- BUTTON -->
+      <button
+        class="w-full py-4 rounded-2xl bg-indigo-600 text-white font-black text-lg hover:bg-indigo-700 transition"
+      >
+        Lanjut ke Konfirmasi
+      </button>
+    </form>
+  </div>
+</section>
+
+{% endblock %}

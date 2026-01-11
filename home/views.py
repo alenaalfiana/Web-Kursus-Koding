@@ -1,81 +1,109 @@
 from django.shortcuts import render, redirect
 
-KURSUS = {
-    "web-dev": {
-        "nama": "Web Development",
-        "deskripsi": "Kursus ini dirancang untuk pemula hingga menengah yang ingin menjadi Web Developer profesional.",
-        "materi": [
-            "HTML5 & Semantic HTML",
-            "CSS3 & Responsive Design",
-            "JavaScript Dasar & Lanjutan",
-            "React.js",
-            "Project Website Nyata"
+COURSES = {
+    "web-development": {
+        "slug": "web-development",
+        "title": "Web Development",
+        "category": "Fullstack Web",
+        "description": "Belajar membangun aplikasi web modern dan scalable.",
+        "what_you_learn": [
+            "HTML, CSS, JavaScript",
+            "React & Next.js",
+            "Tailwind CSS",
+            "Backend API & Deployment",
         ],
-        "manfaat": [
-            "Mampu membuat website modern & responsif",
-            "Memahami workflow Frontend Developer",
-            "Memiliki portfolio profesional",
-            "Siap melamar kerja sebagai Web Developer"
+        "benefits": [
+            "Portfolio project",
+            "Mentoring privat",
+            "Akses materi seumur hidup",
         ],
-        "durasi": "12 Minggu",
-        "level": "Pemula - Menengah"
+"schedule": ["Online", "Flexible", "12 Minggu"]
     },
-    "python": {
-        "nama": "Python Programming",
-        "deskripsi": "Belajar Python dari dasar hingga penerapan di Data Science dan AI.",
-        "materi": [
-            "Python Dasar",
-            "Struktur Data & OOP",
-            "Data Analysis dengan Pandas",
-            "Machine Learning Dasar",
-            "Mini Project"
+    "python-engineering": {
+        "slug": "python-engineering",
+        "title": "Python Engineering",
+        "category": "Python & Data",
+        "description": "Dari automation hingga backend dan AI integration.",
+        "what_you_learn": [
+            "Python Fundamental",
+            "Django Backend",
+            "Automation Script",
+            "Data & AI dasar",
         ],
-        "manfaat": [
-            "Menguasai bahasa Python",
-            "Mampu mengolah & menganalisis data",
-            "Dasar kuat untuk AI & Machine Learning",
-            "Peluang karir luas (Data, Backend, AI)"
+        "benefits": [
+            "Real-world project",
+            "Mentor profesional",
+            "Sertifikat",
         ],
-        "durasi": "10 Minggu",
-        "level": "Pemula"
+        "schedule": ["Online", "Live Session", "10 Minggu"],
     },
-    "mobile": {
-        "nama": "Mobile Development",
-        "deskripsi": "Bangun aplikasi mobile Android & iOS dengan teknologi modern.",
-        "materi": [
-            "Dasar Mobile App",
+    "mobile-development": {
+        "slug": "mobile-development",
+        "title": "Mobile Development",
+        "category": "Mobile Apps",
+        "description": "Bangun aplikasi Android & iOS dari satu codebase.",
+        "what_you_learn": [
             "Flutter & Dart",
-            "React Native",
+            "UI/UX Mobile",
             "API Integration",
-            "Build & Publish App"
+            "App Deployment",
         ],
-        "manfaat": [
-            "Mampu membuat aplikasi Android & iOS",
-            "Menguasai cross-platform development",
-            "Portfolio aplikasi nyata",
-            "Siap menjadi Mobile Developer"
+        "benefits": [
+            "Build 2 Apps",
+            "Career guidance",
+            "Community access",
         ],
-        "durasi": "14 Minggu",
-        "level": "Menengah"
-    }
+        "schedule": ["Online", "Project-based", "12 Minggu"],
+    },
 }
 
 
-def index(request):
-    return render(request, 'home/index.html', {"kursus": KURSUS})
+def home(request):
+    return render(request, "home.html")
 
-def detail(request, slug):
-    return render(request, 'home/detail.html', {
-        "kursus": KURSUS[slug],
-        "slug": slug
+def course_detail(request, slug):
+    course = COURSES.get(slug)
+    return render(request, "detail.html", {"course": course})
+
+def course_register(request, slug):
+    course = COURSES[slug]
+
+    if request.method == 'POST':
+        request.session['form_data'] = {
+            'name': request.POST.get('name'),
+            'email': request.POST.get('email'),
+            'phone': request.POST.get('phone'),
+            'gender': request.POST.get('gender'),
+            'age': request.POST.get('age'),
+            'city': request.POST.get('city'),
+            'education': request.POST.get('education'),
+            'experience': request.POST.get('experience'),
+            'goal': request.POST.get('goal'),
+            'device': request.POST.get('device'),
+        }
+        return redirect('course_confirm', slug=slug)
+
+    return render(request, 'daftar.html', {'course': course})
+
+
+
+def course_confirm(request, slug):
+    course = COURSES[slug]
+    data = request.session.get('form_data')
+
+    return render(request, 'konfirmasi.html', {
+        'course': course,
+        'data': data
     })
 
-def daftar(request, slug):
+def process_payment(request, slug):
     if request.method == "POST":
-        return redirect('sukses')
-    return render(request, 'home/daftar.html', {
-        "kursus": KURSUS[slug]
-    })
+        return redirect('payment_success', slug=slug)
 
-def sukses(request):
-    return render(request, 'home/sukses.html')
+def payment_success(request, slug):
+    course = COURSES[slug]
+    return render(request, 'payment_success.html', {'course': course})
+
+def about(request):
+    return render(request, 'about.html')
+
